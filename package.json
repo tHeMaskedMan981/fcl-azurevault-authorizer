@@ -1,0 +1,72 @@
+{
+    "name": "fcl-azurevault-authorizer",
+    "author": "akash",
+    "module": "dist/fcl-azurevault-authorizer.esm.js",
+    "description": "Azure Vault authorizer (signer) for Flow blockchain.",
+    "version": "0.1.3",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=10"
+    },
+    "scripts": {
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tHeMaskedMan981/fcl-azurevault-authorizer.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tHeMaskedMan981/fcl-azurevault-authorizer/issues"
+    },
+    "homepage": "https://github.com/tHeMaskedMan981/fcl-azurevault-authorizer#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "prettier": {
+        "printWidth": 80,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5"
+    },
+    "size-limit": [
+        {
+            "path": "dist/fcl-azurevault-authorizer.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/fcl-azurevault-authorizer.esm.js",
+            "limit": "10 KB"
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^5.0.5",
+        "@types/elliptic": "^6.4.13",
+        "dotenv": "^10.0.0",
+        "elliptic": "^6.5.4",
+        "husky": "^7.0.2",
+        "sha3": "^2.1.4",
+        "size-limit": "^5.0.5",
+        "tsdx": "^0.14.1",
+        "tslib": "^2.3.1",
+        "typescript": "^3.9.10"
+    },
+    "dependencies": {
+        "@azure/identity": "^1.5.2",
+        "@azure/keyvault-keys": "^4.3.0",
+        "@onflow/fcl": "^0.0.77"
+    }
+}
