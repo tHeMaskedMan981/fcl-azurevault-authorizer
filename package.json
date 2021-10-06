@@ -3,7 +3,7 @@
     "author": "akash",
     "module": "dist/fcl-azurevault-authorizer.esm.js",
     "description": "Azure Vault authorizer (signer) for Flow blockchain.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
