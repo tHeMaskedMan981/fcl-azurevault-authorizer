@@ -6,13 +6,10 @@ import {DefaultAzureCredential, ClientSecretCredential} from '@azure/identity';
 dotenv.config();
 
 // extracting the key configuration from .env file for test
-// const keyId = process.env.KEY_ID!;
-// const keyName = process.env.KEY_NAME!;
-// const keyVaultUrl = process.env.KEY_VAULT_URL!;
+const keyId = process.env.KEY_ID!;
+const keyName = process.env.KEY_NAME!;
+const keyVaultUrl = process.env.KEY_VAULT_URL!;
 
-const keyId = "https://faze.vault.azure.net/keys/testkey001/765b41e57df848608bf68d9523e88005";
-const keyName = "testkey001";
-const keyVaultUrl = "https://faze.vault.azure.net";
 
 // Test transaction
 const transaction = `
