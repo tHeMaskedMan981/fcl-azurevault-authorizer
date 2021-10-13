@@ -1,6 +1,6 @@
 // Imports the Cloud KMS library
 import { KeyClient, CryptographyClient } from "@azure/keyvault-keys";
-import { DefaultAzureCredential }from "@azure/identity";
+import { TokenCredential }from "@azure/identity";
 import crypto from  'crypto';
 
 export class Signer {
@@ -8,9 +8,7 @@ export class Signer {
   private readonly keyClient: KeyClient;
   private readonly keyName: string;
 
-  public constructor(keyId:string, keyName:string, keyVaultUrl:string) {
-    
-    const credential = new DefaultAzureCredential();
+  public constructor(credential:TokenCredential, keyId:string, keyName:string, keyVaultUrl:string) {
 
     this.cryptoClient = new CryptographyClient(
         keyId, // You can use either the key or the key Id i.e. its url to create a CryptographyClient.

@@ -1,5 +1,6 @@
 import * as fcl from '@onflow/fcl';
 import { AzureVaultAuthorizer } from '../src/authorizer';
+import { DefaultAzureCredential, ClientSecretCredential } from '@azure/identity';
 
 // Key configuration. Keep this data secret. Although no one can get access to your keys, they can still 
 // use it to sign transactions if this configuration info along with account credentials are leaked.
@@ -22,9 +23,19 @@ fcl.config().put('accessNode.api', apiUrl);
 
 async function main() {
 
+  const credential = new DefaultAzureCredential();
+
+  // Use ClientSecretCredential if don't want to use DefaultAzureCredential
+
+  // const credential = new ClientSecretCredential(
+  //   <tenant-id>,
+  //   <client-id>,
+  //   <client-secret>
+  // );
+
   // Create an instance of the authorizer
   const authorizer = new AzureVaultAuthorizer(
-      keyId, keyName, keyVaultUrl
+    credential, keyId, keyName, keyVaultUrl
   );
 
   // account address to use. To create a new account, Use the public key to 

@@ -4,8 +4,8 @@ import { Signer } from './signer';
 export class AzureVaultAuthorizer {
   private readonly signer: Signer;
 
-  public constructor(keyId:string, keyName:string, keyVaultUrl:string) {
-    this.signer = new Signer(keyId, keyName, keyVaultUrl);
+  public constructor(credential:any, keyId:string, keyName:string, keyVaultUrl:string) {
+    this.signer = new Signer(credential, keyId, keyName, keyVaultUrl);
   }
 
   public authorize(accountAddress: string, keyIndex: number) {

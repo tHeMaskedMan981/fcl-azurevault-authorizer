@@ -15,6 +15,7 @@ npm i fcl-azurevault-authorizer
 
 import * as fcl from '@onflow/fcl';
 import { AzureVaultAuthorizer } from 'fcl-azurevault-authorizer';
+import { DefaultAzureCredential, ClientSecretCredential } from '@azure/identity';
 
 // Key configuration. Store it in env variables or secret manager
 const keyId = "https://<vault-name>.vault.azure.net/keys/<key-name>/xxxxxxxxxxxxxxxx";
@@ -33,9 +34,19 @@ transaction {
 
 async function main() {
 
+  const credential = new DefaultAzureCredential();
+
+  // Use ClientSecretCredential if don't want to use DefaultAzureCredential
+
+  // const credential = new ClientSecretCredential(
+  //   <tenant-id>,
+  //   <client-id>,
+  //   <client-secret>
+  // );
+
   // Create an instance of the authorizer
   const authorizer = new AzureVaultAuthorizer(
-      keyId, keyName, keyVaultUrl
+    credential, keyId, keyName, keyVaultUrl
   );
 
   // address created using public key 
